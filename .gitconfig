@@ -1,0 +1,15 @@
+[user]
+	email = chenbao.cs@qq.com
+	name = xbao
+[http]
+	proxy = http://hub.fastgit.xyz/
+[https]
+	proxy = https://hub.fastgit.xyz/
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	br = branch
+	logl = log --oneline
+	cma = commit --amend
+	cmm = commit -m
