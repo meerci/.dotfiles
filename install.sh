@@ -14,7 +14,7 @@ manage() {
   if [ -L $src -a `readlink $src`=$link ]
     then
       echo "exists"
-      return 1
+      return 
   fi 
 
   # backup old config
@@ -31,7 +31,7 @@ manage() {
     echo "success"
   else
     echo "can\'t find both source and target"
-    return 0
+    return
   fi
   
 }

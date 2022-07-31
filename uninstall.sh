@@ -15,7 +15,7 @@ function manage() {
   if ! [ -L $src -a `readlink $src`=$link ]
     then
       echo "not exist"
-      return 0
+      return
   fi
   # remove link, and copy config back where it is
   [ -e $src ] && rm -r $src
