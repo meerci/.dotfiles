@@ -1,3 +1,4 @@
 # manage source [path_in_repo]
 manage ~/.bashrc
 manage ~/.gitconfig
+manage ~/.vimrc
