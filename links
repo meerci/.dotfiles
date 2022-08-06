@@ -2,3 +2,4 @@
 manage ~/.bashrc
 manage ~/.gitconfig
 manage ~/.vimrc
+manage ~/.tmux.conf
