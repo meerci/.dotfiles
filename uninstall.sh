@@ -1,13 +1,21 @@
 #!/usr/bin/bash
 set -e
+set -u
+
 repo_path=`dirname $0`
 repo_path=`cd $repo_path; pwd`
 
 function manage() {
-  src=$1; link=$2
-  [ $src ] || return
-  [ $link ] || link=`basename $src`
-  link=$repo_path/$link
+   local src=$1
+   if [ $2 ]
+   then
+     local link=$repo_path/$link
+   else
+     local link=`basename $src`
+   fi
+
+  echo -n "install $src -> $link: "
+
 
   echo -n "uninstall $src -> $link: "
 

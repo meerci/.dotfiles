@@ -1,12 +1,18 @@
 #!/usr/bin/bash
 set -e
+
 repo_path=`dirname $0`
 repo_path=`cd $repo_path; pwd`
 
 manage() {
-  src=$1; link=$2
-  [ $link ] || link=`basename $src`
-  link=$repo_path/$link
+  local src=$1
+  local link=$2
+  if [ $2 ]
+  then
+    local link=$repo_path/$link
+  else
+    local link=`basename $src`
+  fi
 
   echo -n "install $src -> $link: "
 
