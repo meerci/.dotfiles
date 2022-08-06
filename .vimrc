@@ -1,9 +1,15 @@
-set clipboard+=unnamed
+set clipboard^=unnamed,unnamedplus
 set incsearch
 set ignorecase
 set smartcase
 set number
 set relativenumber
+
+if &term =~ "xterm" || exists('$TMUX')
+    let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[2 q"
+endif
 
 
 let mapleader=' '
@@ -27,8 +33,6 @@ noremap <S-Tab> :bp<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-vnoremap p \"_dP
-
 noremap gv <C-V>
 " noremap M :action ParameterInfo<Cr>
 " noremap Q :action ReformatCode<Cr>:w<Cr>
@@ -49,10 +53,6 @@ noremap <A-h> <C-w>h
 noremap <A-j> <C-w>j
 noremap <A-k> <C-w>k
 noremap <A-l> <C-w>l
-noremap Wt :action ActivateTerminalToolWindow<Cr>
-
-noremap Wf :action ActivateProjectToolWindow<Cr>
-noremap Ws :action ActivateStructureToolWindow<Cr>
 
 "size
 noremap <A-=> <C-w>=
