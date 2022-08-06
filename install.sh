@@ -11,7 +11,7 @@ manage() {
   then
     local link=$repo_path/$link
   else
-    local link=`basename $src`
+    local link=$repo_path/`basename $src`
   fi
 
   echo -n "install $src -> $link: "

@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-set -u
 
 repo_path=`dirname $0`
 repo_path=`cd $repo_path; pwd`
@@ -11,11 +10,8 @@ function manage() {
    then
      local link=$repo_path/$link
    else
-     local link=`basename $src`
+     local link=$repo_path/`basename $src`
    fi
-
-  echo -n "install $src -> $link: "
-
 
   echo -n "uninstall $src -> $link: "
 
