@@ -46,8 +46,8 @@ noremap gv <C-V>
 
 " window
 "split
-noremap Wh :sp<CR>
-noremap Wv :vsp<CR>
+noremap - :sp<CR>
+noremap \| :vsp<CR>
 "switch
 noremap <A-h> <C-w>h
 noremap <A-j> <C-w>j
