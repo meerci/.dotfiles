@@ -13,3 +13,5 @@
 	logl = log --oneline
 	cma = commit --amend
 	cmm = commit -m
+[core]
+	editor = vim
