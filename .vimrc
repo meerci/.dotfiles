@@ -4,6 +4,7 @@ set ignorecase
 set smartcase
 set number
 set relativenumber
+set noswapfile
 
 if &term =~ "xterm" || exists('$TMUX')
     let &t_SI = "\<Esc>[6 q"
