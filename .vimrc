@@ -18,17 +18,20 @@ let mapleader=' '
 " cursor
 noremap H ^
 noremap L g_
-noremap [ H
-noremap ] L
 noremap <C-k> 5k
 noremap <C-j> 5j
 noremap <C-u> 10k
 noremap <C-d> 10j
+vmap p \"_dhp
 noremap / /\v
 
 " buffer
-noremap <Tab> :bn<CR>
-noremap <S-Tab> :bp<CR>
+noremap { :bn<CR>
+noremap } :bp<CR>
+
+map <leader>t :terminal<CR>
+map <leader>e :Lexplore<CR>
+map <leader>E :Explore<CR>
 
 " incident
 vnoremap < <gv
@@ -65,3 +68,21 @@ noremap <A-Up>, :resize -2<CR>
 noremap Wc <C-w>c
 " close other
 noremap Wo <C-w>o
+
+
+"vim marks
+" m{bookmark-name}                create a mark. upper is global mark
+" `{bookmark-name}                goto line:col
+" '{bookmark-name}                goto line
+" :marks                          list marks
+" :delmarks {bookmark-name}       delete marks
+
+map gm `
+map M :marks<CR>
+"map dm :delmarks 
+
+"vim jump
+" C-o    go back
+" C-i    go forward
+map [ <C-o>
+map ] <C-i>
