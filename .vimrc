@@ -3,7 +3,6 @@ set incsearch
 set ignorecase
 set smartcase
 set number
-set relativenumber
 set noswapfile
 
 if &term =~ "xterm" || exists('$TMUX')
@@ -23,7 +22,7 @@ noremap <C-j> 5j
 noremap <C-u> 10k
 noremap <C-d> 10j
 vmap p \"_dhp
-noremap / /\v
+map / /\v
 
 " buffer
 noremap { :bn<CR>
