@@ -11,3 +11,7 @@
 	logl = log --oneline
 [core]
 	editor = vim
+[http "https://github.com"]
+	proxy = socks5://172.24.240.1:10810
+[pull]
+	rebase = true
