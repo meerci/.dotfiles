@@ -2,7 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 --
-local Util = require("lazyvim.util")
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -16,5 +15,9 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<s-q>", "<cmd>w<cr>", { desc = "Save file" })
+
 map("n", "<s-h>", "^", { desc = "Soft line front" })
 map("n", "<s-l>", "g_", { desc = "Soft line end" })
+
+map("n", "<a-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+map("n", "<a-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
