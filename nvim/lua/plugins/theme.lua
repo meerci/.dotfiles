@@ -1,11 +1,11 @@
 return {
-  { "joshdick/onedark.vim" },
+  { "doums/darcula" },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "darcula",
     },
   },
 }
