@@ -1,9 +1,9 @@
 return {
-  { "doums/darcula" },
+  { "sainnhe/sonokai" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "darcula",
+      colorscheme = "sonokai",
     },
   },
 }
