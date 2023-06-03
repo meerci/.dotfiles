@@ -120,9 +120,8 @@ if [ -f ~/.bashrc.local ]; then
 	. ~/.bashrc.local
 fi
 
-# proxy for wsl
+# proxy v2ray
 function v2() {
-	local proxy_host=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
 	export https_proxy="socks5://${proxy_host}:10810"
 	export http_proxy="http://${proxy_host}:10811"
 	export all_proxy="socks5://${proxy_host}:10810"
