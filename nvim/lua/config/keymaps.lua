@@ -16,8 +16,8 @@ end
 
 map("n", "<s-q>", "<cmd>w<cr>", { desc = "Save file" })
 
-map("n", "<s-h>", "^", { desc = "Soft line front" })
-map("n", "<s-l>", "g_", { desc = "Soft line end" })
+map({ "n", "v" }, "<s-h>", "^", { desc = "Soft line front" })
+map({ "n", "v" }, "<s-l>", "g_", { desc = "Soft line end" })
 
 map("n", "<a-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<a-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
