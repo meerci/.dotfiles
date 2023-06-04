@@ -8,10 +8,11 @@
 	cm = commit
 	cma = commit --amend
 	cmm = commit -m
-	logl = log --oneline
+	logl = log --oneline --graph
 [core]
 	editor = vim
-[http "https://github.com"]
-	proxy = socks5://172.24.240.1:10810
 [pull]
 	rebase = true
+[merge]
+	ff = false
+	tool = vimdiff
