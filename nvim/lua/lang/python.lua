@@ -5,7 +5,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "pyright",
         "ruff-lsp",
-        "pylint",
+        -- "pylint",
         "ruff",
         "isort",
       })
@@ -20,7 +20,7 @@ return {
         nls.builtins.formatting.isort,
         nls.builtins.formatting.ruff,
         nls.builtins.formatting.black,
-        nls.builtins.diagnostics.pylint,
+        -- nls.builtins.diagnostics.pylint,
       })
     end,
   },
