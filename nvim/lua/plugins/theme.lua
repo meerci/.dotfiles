@@ -1,9 +1,9 @@
 return {
-  { "sainnhe/sonokai" },
+  { "morhetz/gruvbox" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "sonokai",
+      colorscheme = "gruvbox",
     },
   },
 }
