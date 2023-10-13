@@ -35,3 +35,5 @@ map("n", "<leader>fT", function()
 end, { desc = "Terminal (cwd)" })
 
 map("n", "<c-_>", lazyterm, { desc = "Terminal (root dir)" })
+
+map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })
