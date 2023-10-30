@@ -14,6 +14,10 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+local lazyterm = function(cwd)
+  require("lazyvim.util").terminal.open(nil, { cwd = cwd, border = "rounded" })
+end
+
 map("n", "<s-q>", "<cmd>w<cr>", { desc = "Save file" })
 
 map({ "n", "v" }, "<s-h>", "^", { desc = "Soft line front" })
@@ -25,15 +29,10 @@ map("n", "<a-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("i", "<c-h>", "<left>")
 map("i", "<c-l>", "<right>")
 
-local lazyterm = function(cwd)
-  require("lazyvim.util").float_term(nil, { cwd = cwd, border = "rounded" })
-end
-
 map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
 map("n", "<leader>fT", function()
-  lazyterm(require("lazyvim.util").get_root())
+  lazyterm(require("lazyvim.util").root.get())
 end, { desc = "Terminal (cwd)" })
-
 map("n", "<c-_>", lazyterm, { desc = "Terminal (root dir)" })
 
 map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })

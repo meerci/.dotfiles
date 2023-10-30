@@ -1,4 +1,3 @@
-local sql_dialect = "sqlite"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -18,17 +17,9 @@ return {
     end,
   },
   {
-    "nvimtools/none-ls.nvim",
+    "stevearc/conform.nvim",
     opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = vim.list_extend(opts.sources, {
-        nls.builtins.formatting.sqlfluff.with({
-          extra_args = { "--dialect", sql_dialect },
-        }),
-        nls.builtins.diagnostics.sqlfluff.with({
-          extra_args = { "--dialect", sql_dialect },
-        }),
-      })
+      opts.formatters_by_ft["sql"] = { "sqlfluff" }
     end,
   },
 }
