@@ -18,6 +18,7 @@ require("lazy").setup({
     { import = "lang/python" },
     { import = "lang/cpp" },
     { import = "lang/sql" },
+    { import = "lang/json" },
     -- { import = "lang/go" },
   },
   defaults = {
