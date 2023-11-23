@@ -1,0 +1,18 @@
+[user]
+	email = chenbao.cs@qq.com
+	name = xbao
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	cm = commit
+	cma = commit --amend
+	cmm = commit -m
+	logl = log --oneline --graph
+[core]
+	editor = vim
+[pull]
+	rebase = true
+[merge]
+	ff = false
+	tool = vimdiff
