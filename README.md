@@ -1,18 +1,16 @@
 # .dotfiles
+
 My dotfiles
 
 ## Usage
 
 ### install
 ```bash
-git clone https://github.com/xba0/.dotfiles.git ~/.dotfiles
+git -c https.proxy="127.0.0.1:10810" clone https://github.com/xba0/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./uninstall && ./install
+# git remote set-url origin git@github.com:xba0/dotfiles.git
 
-# discard local version
-git reset --hard
-# or save local version
-git stash
 ```
 
 ### uninstall
@@ -21,8 +19,8 @@ cd ~/.dotfiles
 ./uninstall
 ```
 
-### manage links
-```
+### manage symbolic links
+```bash
 vim ~/.dotfiles/links
 
 # example
