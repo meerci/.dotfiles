@@ -14,8 +14,11 @@ git config --global http.https://github.com.proxy socks5://${proxy_host}:10810
 ```shell
 curl --create-dirs -LSso ~/.local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
 chmod u+x ~/.local/bin/yadm
+
 ~/.local/bin/yadm clone https://github.com/xba0/dotfiles.git
-~/.local/bin/yadm restore --staged ~
-~/.local/bin/yadm checkout -- ~
-~/.local/bin/yadm bootstrap
+
+# ~/.local/bin/yadm checkout -- ~
+
+# ~/.local/bin/yadm bootstrap
+
 ```
