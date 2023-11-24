@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# sparse checkout
+yadm gitconfig core.sparseCheckout true
+yadm sparse-checkout set '/*' '!README.md'
