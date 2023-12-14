@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
 fi
 
 # bash local
-if [ -f ~/.bashrc.local ]; then
-	. ~/.bashrc.local
+if [ -f ~/.shell.local ]; then
+	. ~/.shell.local
 fi
 
 proxy_host=${proxy_host:-localhost}

@@ -3,7 +3,14 @@ export PATH='/Users/bao/.local/bin':$PATH
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/opt/homebrew/opt/pyqt@5/5.15.4_1/bin:$PATH"
 
-source /Users/bao/.aliases
+
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi
+
+if [ -f ~/.shell.local ]; then
+	. ~/.shell.local
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
