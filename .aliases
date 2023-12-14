@@ -17,4 +17,5 @@ alias sha256='openssl sha256'
 
 alias mkdir='mkdir -pv'
 
-
+alias nfzf='nvim $(fzf --height 40% --border)'
+alias gfzf='cd $(find * -type d | fzf)'
