@@ -3,6 +3,11 @@ export PATH='/Users/bao/.local/bin':$PATH
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/opt/homebrew/opt/pyqt@5/5.15.4_1/bin:$PATH"
 
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt INC_APPEND_HISTORY
+
 
 if [ -f ~/.aliases ]; then
   source ~/.aliases
@@ -55,6 +60,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light rupa/z
 
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 
 proxy_host=${proxy_host:-localhost}
