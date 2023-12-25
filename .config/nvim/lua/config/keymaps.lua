@@ -24,9 +24,9 @@ map({ "n", "v" }, "<s-h>", "^", { desc = "Soft line front" })
 map({ "n", "v" }, "<s-l>", "g_", { desc = "Soft line end" })
 
 map("n", "<a-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-
-vim.keymap.set("n", "<m-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<m-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<a-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<m-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 map("i", "<c-h>", "<left>")
 map("i", "<c-l>", "<right>")
