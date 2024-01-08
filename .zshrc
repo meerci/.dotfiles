@@ -2,6 +2,8 @@ export PS1='%n %~ %# '
 export PATH='/Users/bao/.local/bin':$PATH
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/opt/homebrew/opt/pyqt@5/5.15.4_1/bin:$PATH"
+export PATH="/Users/bao/go/bin:$PATH"
+
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000

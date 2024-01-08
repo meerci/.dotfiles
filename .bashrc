@@ -139,3 +139,4 @@ function nov2() {
 }
 
 # Newly changes
+. "$HOME/.cargo/env"
