@@ -1,9 +1,9 @@
 return {
-  { "morhetz/gruvbox" },
+  { "polirritmico/monokai-nightasty.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "monokai-nightasty",
     },
   },
 }
