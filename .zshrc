@@ -67,6 +67,10 @@ zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
 
 
+if [ -f ~/.shell.local ]; then
+	. ~/.shell.local
+fi
+
 proxy_host=${proxy_host:-localhost}
 # set proxy
 function v2() {
