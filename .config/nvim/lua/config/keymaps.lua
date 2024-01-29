@@ -43,3 +43,5 @@ map("n", "<c-?>", function()
 end, { desc = "Terminal (cwd)" })
 
 map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })
+
+map("n", "!", "@:", { desc = "repeat last cmd", remap = true })
