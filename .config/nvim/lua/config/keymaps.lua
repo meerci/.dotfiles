@@ -45,3 +45,8 @@ end, { desc = "Terminal (cwd)" })
 map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })
 
 map("n", "!", "@:", { desc = "repeat last cmd", remap = true })
+
+vim.keymap.set("n", "<esc>", function()
+  require("noice").cmd("dismiss")
+  vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n")
+end, { noremap = true })
