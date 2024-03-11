@@ -48,5 +48,6 @@ map("n", "!", "@:", { desc = "repeat last cmd", remap = true })
 
 vim.keymap.set("n", "<esc>", function()
   require("noice").cmd("dismiss")
+  vim.cmd("nohl")
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n")
 end, { noremap = true })
