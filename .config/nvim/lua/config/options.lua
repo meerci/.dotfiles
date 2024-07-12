@@ -5,3 +5,4 @@
 vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 vim.o.foldlevel = 99
+vim.o.fileencodings = "utf8,gbk"
