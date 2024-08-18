@@ -42,12 +42,30 @@ map("n", "<c-?>", function()
   lazyterm(require("lazyvim.util").root.get())
 end, { desc = "Terminal (cwd)" })
 
-map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })
+-- map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })
 
 map("n", "!", "@:", { desc = "repeat last cmd", remap = true })
+
+map("n", "dm", ":execute 'delmarks '.nr2char(getchar())<cr>", { desc = "delete mark", remap = false })
 
 vim.keymap.set("n", "<esc>", function()
   require("noice").cmd("dismiss")
   vim.cmd("nohl")
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n")
 end, { noremap = true })
+
+map("n", "<leader>fh", function()
+  local hunks = require("gitsigns").get_hunks()
+  local format = require("conform").format
+  for i = #hunks, 1, -1 do
+    local hunk = hunks[i]
+    if hunk ~= nil and hunk.type ~= "delete" then
+      local start = hunk.added.start
+      local last = start + hunk.added.count
+      -- nvim_buf_get_lines uses zero-based indexing -> subtract from last
+      local last_hunk_line = vim.api.nvim_buf_get_lines(0, last - 2, last - 1, true)[1]
+      local range = { start = { start, 0 }, ["end"] = { last - 1, last_hunk_line:len() } }
+      format({ range = range })
+    end
+  end
+end, { desc = "format git hunks", remap = false })

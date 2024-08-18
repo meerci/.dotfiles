@@ -14,6 +14,7 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "lang/sql" },
     { import = "lang/python" },
+    { import = "lang/plantuml" },
     -- other language configures are managed by LazyExtras
   },
   defaults = {

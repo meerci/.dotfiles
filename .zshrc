@@ -1,11 +1,11 @@
 export PS1='%n %~ %# '
-
+export PATH=/usr/local/bin:$PATH
 fpath=(~/.zsh $fpath)
-
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 
 
 

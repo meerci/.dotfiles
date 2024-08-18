@@ -1,9 +1,11 @@
 return {
   { "polirritmico/monokai-nightasty.nvim" },
+  { "sainnhe/sonokai" },
+
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "monokai-nightasty",
+      colorscheme = "sonokai",
     },
   },
 }
