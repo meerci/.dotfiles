@@ -8,3 +8,9 @@ vim.o.foldlevel = 99
 vim.o.fileencodings = "utf8,gbk"
 -- vim.o.relativenumber = false
 vim.g.autoformat = false
+vim.g.format_hunks = true
+vim.g.root_spec= {{".git"}, "cwd"}
+
+-- open use neovim in nested shell
+-- install neovim-remote first
+vim.env.GIT_EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
