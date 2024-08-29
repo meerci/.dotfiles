@@ -11,6 +11,8 @@
 	cmm = commit -m
 	logl = log --oneline --graph
   rss = restore --staged
+  cp = cherry-pick
+	pushr = !git push origin HEAD:refs/for/$(git name-rev --name-only HEAD)
 [core]
 	editor = nvim
 [pull]
