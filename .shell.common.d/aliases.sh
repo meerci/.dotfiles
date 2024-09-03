@@ -1,5 +1,6 @@
-alias ls='ls --color=auto'
-alias ll='ls -la'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 alias ..='cd ..'
 alias ...='cd ../../../'
@@ -19,4 +20,8 @@ alias mkdir='mkdir -pv'
 
 alias fnvim='nvim $(fzf --height 40% --border)'
 alias fn=fnvim
-alias fcd='cd $(find * -type d | fzf)'
+alias fcd='cd $(find * -type d | fzf --height 40% --border)'
+
+alias pxinstall='pip install --break-system-packages'
+
+alias v="nvim"

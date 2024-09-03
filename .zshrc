@@ -7,17 +7,6 @@ SAVEHIST=10000000
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
-
-
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
-fi
-
-if [ -f ~/.shell.local ]; then
-	. ~/.shell.local
-fi
-
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -50,5 +39,9 @@ zinit light woefe/git-prompt.zsh
 zinit ice lucid wait'0'
 zinit light joshskidmore/zsh-fzf-history-search
 
-# ============
+# load custom scripts
+for script in ~/.shell.common.d/*.sh; do source "${script}"; done
+for script in ~/.shell.local.d/*.sh; do source "${script}"; done
+
+#======Configuration End=========
 
