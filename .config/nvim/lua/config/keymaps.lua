@@ -85,8 +85,9 @@ map("n", "<leader>cf", function()
       end
     end
   end
-end, { desc = "format changes", remap = false })
+end, { desc = "format", remap = false })
 
 map("n", "du", "<cmd>diffupdate<cr>", { desc = "diffupdate", remap = false })
 map("n", "do", "<cmd>diffget<cr>", { desc = "diffget", remap = false })
 map("n", "dp", "<cmd>diffput<cr>", { desc = "diffput", remap = false })
+

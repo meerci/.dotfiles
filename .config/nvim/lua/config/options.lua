@@ -8,8 +8,8 @@ vim.o.foldlevel = 99
 vim.o.fileencodings = "utf8,gbk"
 -- vim.o.relativenumber = false
 vim.g.autoformat = false
-vim.g.format_hunks = true
-vim.g.root_spec= {{".git"}, "cwd"}
+vim.g.format_hunks = false
+vim.g.root_spec = { { ".git", "lua" }, "cwd" }
 
 -- open use neovim in nested shell
 -- install neovim-remote first
