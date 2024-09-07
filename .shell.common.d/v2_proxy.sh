@@ -15,3 +15,4 @@ function nov2() {
   export all_proxy=
   git config --unset --global http.https://github.com.proxy
 }
+
