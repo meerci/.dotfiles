@@ -4,7 +4,7 @@
 --
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = "quickfix",
-  callback = function(_)
-    vim.keymap.set("n", "o", "<cr><c-w>w", { silent = true, desc = "preview item" })
+  callback = function(args)
+    vim.api.nvim_buf_set_keymap(args.buf, "n", "o", "<cr><c-w>w", { silent = true, desc = "preview item" })
   end,
 })
