@@ -10,9 +10,8 @@
 	cma = commit --amend
 	cmm = commit -m
 	logl = log --oneline --graph
-  rss = restore --staged
-  cp = cherry-pick
-	pushr = !git push origin HEAD:refs/for/$(git name-rev --name-only HEAD)
+	rss = restore --staged
+	cp = cherry-pick
 [core]
 	editor = nvim
 [pull]
@@ -20,7 +19,7 @@
 [push]
 	default = simple
 [merge]
-  tool = diffview
+	tool = diffview
 [mergetool]
-  prompt = false
-  keepBackup = false
+	prompt = false
+	keepBackup = false
