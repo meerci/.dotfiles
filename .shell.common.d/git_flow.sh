@@ -1,3 +1,8 @@
+function trace_exec() {
+  if [ $GIT_FLOW_TRACE ]; then echo $@; fi
+  $@
+}
+
 function flow() {
   local command="$1"
   if [ -z "$command" ]; then
@@ -37,7 +42,7 @@ function flow-base() {
   local branch_path=$(git config --get branch.$(git branch --show-current).merge)
   local remote_branch_name=${branch_path##*/}
 
-  git checkout $remote_branch_name
+  trace_exec git checkout $remote_branch_name
 }
 
 # create and checkout to a new feature branch
@@ -53,9 +58,9 @@ function flow-new-branch() {
   if [ -z "${remote_branch_name}" ]; then echo "empty branch name" && return 1; fi
   if [ -z "${new_branch}" ]; then echo "empty branch name" && return 1; fi
 
-  git checkout -b $new_branch ${remote}/$remote_branch_name
-  git config --local branch.${new_branch}.remote $remote_repo
-  git config --local branch.${new_branch}.merge $branch_path
+  trace_exec git checkout -b $new_branch ${remote}/$remote_branch_name
+  trace_exec git config --local branch.${new_branch}.remote $remote_repo
+  trace_exec git config --local branch.${new_branch}.merge $branch_path
 }
 
 # push current branch to gerrit
@@ -67,9 +72,9 @@ function flow-cr() {
   if [ -z "${remote}" ]; then echo "empty remote" && return 1; fi
   if [ -z "${remote_branch_name}" ]; then echo "empty branch name" && return 1; fi
 
-  git push $remote HEAD:refs/for/${remote_branch_name}
+  trace_exec git push $remote HEAD:refs/for/${remote_branch_name}
 }
 
 function flow-list() {
-  git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:short) %(refname:short)"
+  trace_exec git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:short) %(refname:short)"
 }
