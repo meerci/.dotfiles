@@ -3,6 +3,8 @@
 	name = chenbao
 [alias]
 	st = status
+	df = diff
+	dfs = diff --staged
 	co = checkout
 	br = branch
 	bra = branch --all
