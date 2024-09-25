@@ -25,6 +25,8 @@ function flow() {
     flow-cr
   elif [ "${command}" = "list" ]; then
     flow-list
+  elif [ "${command}" = "select" ]; then
+    flow-select $1
   elif [ "${command}" = "help" ]; then
     flow-usage
   else
@@ -76,5 +78,11 @@ function flow-cr() {
 }
 
 function flow-list() {
-  trace_exec git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:short) %(refname:short)"
+  trace_exec git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:short) | %(align:40,left)%(refname:short)%(end) | %(subject)" | cat -n
+}
+
+function flow-select() {
+  local n=$1
+  local branch=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" | sed -n "${n}p")
+  trace_exec git checkout $branch
 }
