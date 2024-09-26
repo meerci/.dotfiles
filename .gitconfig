@@ -9,9 +9,11 @@
 	br = branch
 	bra = branch --all
 	cm = commit
+	cms = commit --squash
 	cma = commit --amend
 	cmm = commit -m
 	logl = log --oneline --graph
+	rst = restore
 	rss = restore --staged
 	cp = cherry-pick
 [core]

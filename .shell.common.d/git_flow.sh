@@ -37,7 +37,7 @@ function flow() {
 }
 
 function flow-usage() {
-  echo "usage: flow [base | cr | list | help | branch | fix | feat | neat]"
+  echo "usage: flow [base | cr | list | select | branch | help | fix | feat | neat]"
 }
 
 function flow-base() {
@@ -61,7 +61,7 @@ function flow-new-branch() {
   if [ -z "${new_branch}" ]; then echo "empty branch name" && return 1; fi
 
   trace_exec git checkout -b $new_branch ${remote}/$remote_branch_name
-  trace_exec git config --local branch.${new_branch}.remote $remote_repo
+  trace_exec git config --local branch.${new_branch}.remote $remote
   trace_exec git config --local branch.${new_branch}.merge $branch_path
 }
 
@@ -74,7 +74,7 @@ function flow-cr() {
   if [ -z "${remote}" ]; then echo "empty remote" && return 1; fi
   if [ -z "${remote_branch_name}" ]; then echo "empty branch name" && return 1; fi
 
-  trace_exec git push $remote HEAD:refs/for/${remote_branch_name}
+  trace_exec git push $remote HEAD:refs/for/$remote_branch_name
 }
 
 function flow-list() {
@@ -82,7 +82,25 @@ function flow-list() {
 }
 
 function flow-select() {
-  local n=$1
-  local branch=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" | sed -n "${n}p")
+  local filt=$1
+
+  if [ -z "$filt" ]; then
+    echo "usage: flow select <number or filter>"
+    return 1
+  fi
+
+  # for number, select n-th branch; for other, select first match
+  expr $filt "+" 10 &>/dev/null
+  if [ $? -eq 0 ]; then
+    local branch=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" | sed -n "${filt}p")
+  else
+    local branch=$(git for-each-ref --sort=-committerdate refs/heads/ --format="%(refname:short)" | grep -m 1 $filt)
+  fi
+
+  if [ -z "$branch" ]; then
+    echo "no matched branch"
+    return 1
+  fi
+
   trace_exec git checkout $branch
 }
