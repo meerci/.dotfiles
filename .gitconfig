@@ -13,8 +13,9 @@
 	cma = commit --amend
 	cmm = commit -m
 	logl = log --oneline --graph
-	rst = restore
+	rst = reset
 	rss = restore --staged
+	rs = restore
 	cp = cherry-pick
 [core]
 	editor = nvim
