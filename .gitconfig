@@ -9,9 +9,10 @@
 	br = branch
 	bra = branch --all
 	cm = commit
+	cmm = commit -m
 	cms = commit --squash
 	cma = commit --amend
-	cmm = commit -m
+	cmf = commit --fixup
 	logl = log --oneline --graph
 	rst = reset
 	rss = restore --staged
