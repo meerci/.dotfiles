@@ -1,1 +1,1 @@
-env.sh##os.Darwin,user.chenbao
+env.sh##os.WSL
