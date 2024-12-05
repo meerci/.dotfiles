@@ -22,7 +22,6 @@ function send_file() {
     echo $usage
     return 1
   else
-    echo "tar -czf ${verbose} - ${@} | nc ${server} ${port}"
     tar -czf ${verbose} - ${@} | nc ${server} ${port}
     return $?
   fi
@@ -47,7 +46,10 @@ function recv_file() {
     esac
   done
 
-  echo "nc -d ${server} ${port} | tar -xzC ${verbose} ${directory}"
-  nc -d ${server} ${port} | tar -xzC ${verbose} ${directory}
+  if [ $(uname) = 'Darwin' ]; then
+    nc -d ${server} ${port} | tar -xzC ${verbose} ${directory}
+  else
+    nc --recv-only ${server} ${port} | tar -xzC ${verbose} ${directory}
+  fi
   return $?
 }

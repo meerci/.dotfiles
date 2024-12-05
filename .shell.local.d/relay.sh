@@ -11,3 +11,5 @@ function relay() {
     fi
   fi
 }
+
+alias r=relay
