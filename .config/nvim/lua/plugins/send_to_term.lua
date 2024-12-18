@@ -53,7 +53,7 @@ M.SendVisiualToTerm = function()
   local mode = vim.api.nvim_get_mode().mode
   if mode == "v" or mode == "V" then
     -- exit visiual mode
-    vim.api.nvim_feedkeys('\027', 'xt', false)
+    vim.api.nvim_feedkeys("\027", "xt", false)
     local text = M.get_selection("'<", "'>")
     M.SendToTerm(text .. "\r")
   else
@@ -76,5 +76,9 @@ vim.keymap.set("n", "<leader>rs", M.SendMotionToTerm, { silent = true, desc = "S
 vim.keymap.set("n", "<leader>rr", function()
   M.SendToTerm(vim.api.nvim_get_current_line() .. "\r")
 end, { noremap = true, silent = true, desc = "Send line to terminal" })
+vim.keymap.set("n", "<leader>r;", function()
+  -- <UP><CR>
+  M.SendToTerm('\x1b[A\r')
+end, { noremap = true, silent = true, desc = "Send <UP><CR> terminal" })
 
 return {}
