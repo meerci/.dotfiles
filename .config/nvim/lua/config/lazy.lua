@@ -15,6 +15,7 @@ require("lazy").setup({
     { import = "lang/sql" },
     { import = "lang/python" },
     { import = "lang/plantuml" },
+    { import = "lang/verilog" },
     -- other language configures are managed by LazyExtras
   },
   defaults = {
