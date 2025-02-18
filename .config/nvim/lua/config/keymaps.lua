@@ -32,17 +32,6 @@ map("n", "<m-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("i", "<c-h>", "<left>")
 map("i", "<c-l>", "<right>")
 
-map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
-map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
-map("n", "<c-_>", lazyterm, { desc = "Terminal (root dir)" })
-
-map("n", "<leader>fT", function()
-  lazyterm(require("lazyvim.util").root.get())
-end, { desc = "Terminal (cwd)" })
-map("n", "<c-?>", function()
-  lazyterm(require("lazyvim.util").root.get())
-end, { desc = "Terminal (cwd)" })
-
 -- map("n", "<leader>r", "<cmd>w<cr><leader>ft<up><cr>", { desc = "quick run", remap = true })
 
 map("n", "!", "@:", { desc = "repeat last cmd", remap = true })
