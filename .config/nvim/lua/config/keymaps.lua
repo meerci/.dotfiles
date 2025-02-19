@@ -14,10 +14,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-local lazyterm = function(cwd)
-  require("lazyvim.util").terminal.open(nil, { cwd = cwd, border = "rounded" })
-end
-
 map("n", "vv", "<c-v>", { desc = "visiual block" })
 map("n", "<s-q>", "<cmd>w<cr>", { desc = "Save file" })
 
@@ -80,3 +76,4 @@ end, { desc = "format", remap = false })
 map("n", "du", "<cmd>diffupdate<cr>", { desc = "diffupdate", remap = false })
 map("n", "do", "<cmd>diffget<cr>", { desc = "diffget", remap = false })
 map("n", "dp", "<cmd>diffput<cr>", { desc = "diffput", remap = false })
+map("n", "s", "<leader>sw<esc>", { desc = "search cursor word", remap = true })

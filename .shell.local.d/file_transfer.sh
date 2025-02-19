@@ -53,3 +53,6 @@ function recv_file() {
   fi
   return $?
 }
+
+alias rf=recv_file
+alias sf=send_file

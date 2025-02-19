@@ -9,10 +9,30 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+local exclude_patterns = {
+  "_bus.npl",
+  "_tables.npl",
+  "header_format.npl",
+  "sf_define.npl",
+  "sf_define_ext.npl",
+}
+
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "*.p4", "*.npl" },
   callback = function(_)
-    vim.cmd("set ft=cpp")
+    local fname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":t")
+    local exclude = false
+    for _, s in ipairs(exclude_patterns) do
+      if string.find(fname, s, 1, true) then
+        exclude = true
+        break
+      end
+    end
+    if exclude then
+      vim.cmd("set ft=go")
+    else
+      vim.cmd("set ft=c")
+    end
   end,
 })
 

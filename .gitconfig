@@ -2,6 +2,7 @@
 	email = chenbao.cs@qq.com
 	name = Merciva
 [alias]
+	a = add
 	st = status
 	df = diff
 	dfs = diff --staged
@@ -13,11 +14,16 @@
 	cms = commit --squash
 	cma = commit --amend
 	cmf = commit --fixup
+	ll = log --graph
+	l = log --oneline --graph
 	logl = log --oneline --graph
 	rst = reset
 	rss = restore --staged
 	rs = restore
 	cp = cherry-pick
+	patch = cherry-pick --no-commit
+	pt = cherry-pick --no-commit
+	rb = rebase --autosquash -i
 [core]
 	editor = nvim
 [pull]
