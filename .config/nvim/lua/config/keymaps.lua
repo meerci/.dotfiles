@@ -34,11 +34,11 @@ map("n", "!", "@:", { desc = "repeat last cmd", remap = true })
 
 map("n", "dm", ":execute 'delmarks '.nr2char(getchar())<cr>", { desc = "delete mark", remap = false })
 
-vim.keymap.set("n", "<esc>", function()
-  require("noice").cmd("dismiss")
-  vim.cmd("nohl")
-  vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n")
-end, { noremap = true })
+-- vim.keymap.set("n", "<esc>", function()
+--   require("noice").cmd("dismiss")
+--   vim.cmd("nohl")
+--   vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n")
+-- end, { noremap = true })
 
 map("n", "<leader>ur", function()
   vim.g.format_hunks = not vim.g.format_hunks
@@ -53,7 +53,7 @@ map("n", "<leader>cf", function()
   if not vim.g.format_hunks then
     require("conform").format()
   else
-    local hunks = require("gitsigns").get_hunks()
+    local hunks = require("gitsigns").get_hunks(0)
     if hunks == nil then
       vim.notify_once("no git hunks in this buffer", vim.log.levels.WARN)
       return
@@ -76,4 +76,4 @@ end, { desc = "format", remap = false })
 map("n", "du", "<cmd>diffupdate<cr>", { desc = "diffupdate", remap = false })
 map("n", "do", "<cmd>diffget<cr>", { desc = "diffget", remap = false })
 map("n", "dp", "<cmd>diffput<cr>", { desc = "diffput", remap = false })
-map("n", "s", "<leader>sw<esc>", { desc = "search cursor word", remap = true })
+map("n", "s", "<leader>sw<cmd>sleep 50m<cr><esc>", { desc = "search cursor word", remap = true, silent = true })
