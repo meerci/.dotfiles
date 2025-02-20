@@ -1,3 +1,6 @@
+# init
+# nc --recv-only -l 8123 | tar -xzC .
+
 function send_file() {
   local usage="usage: send_file [-s server_address] [-p port] [-v] <files or directories>"
   local server="-l"
