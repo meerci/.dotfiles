@@ -3,7 +3,9 @@
 	name = Merciva
 [alias]
 	a = add
+	s = status
 	st = status
+	d = diff
 	df = diff
 	dfs = diff --staged
 	co = checkout
