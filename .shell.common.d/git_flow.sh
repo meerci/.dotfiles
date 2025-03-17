@@ -15,6 +15,8 @@ function flow() {
     flow-base "$@"
   elif [ "${command}" = "branch" ]; then
     flow-new-branch $@
+  elif [ "${command}" = "br" ]; then
+    flow-new-branch $@
   elif [ "${command}" = "fix" ]; then
     flow-new-branch fix-$1
   elif [ "${command}" = "feat" ]; then
@@ -25,7 +27,11 @@ function flow() {
     flow-cr
   elif [ "${command}" = "list" ]; then
     flow-list
+  elif [ "${command}" = "l" ]; then
+    flow-list
   elif [ "${command}" = "select" ]; then
+    flow-select $1
+  elif [ "${command}" = "s" ]; then
     flow-select $1
   elif [ "${command}" = "help" ]; then
     flow-usage
