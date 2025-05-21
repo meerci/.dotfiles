@@ -1,20 +1,21 @@
 [user]
 	email = chenbao.cs@qq.com
-	name = Merciva
+	name = chenbao
 [alias]
 	a = add
 	s = status
 	st = status
 	d = diff
 	df = diff
-	dfs = diff --staged
+	dd = diff --staged
 	co = checkout
 	br = branch
 	bra = branch --all
 	cm = commit
 	cmm = commit -m
 	cms = commit --squash
-	cma = commit --amend
+	cmae = commit --amend
+	cma = commit --amend --no-edit
 	cmf = commit --fixup
 	ll = log --graph
 	l = log --oneline --graph
@@ -26,6 +27,9 @@
 	patch = cherry-pick --no-commit
 	pt = cherry-pick --no-commit
 	rb = rebase --autosquash -i
+  rba = rebase --abort
+  cpa = cherry-pick --abort
+  mergea = merge --abort
 [core]
 	editor = nvim
 [pull]
