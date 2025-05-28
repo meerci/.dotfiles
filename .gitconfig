@@ -1,5 +1,5 @@
 [user]
-	email = chenbao.cs@qq.com
+	email = email = chenbao.cs@qq.com
 	name = chenbao
 [alias]
 	a = add
@@ -24,12 +24,15 @@
 	rss = restore --staged
 	rs = restore
 	cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
 	patch = cherry-pick --no-commit
 	pt = cherry-pick --no-commit
 	rb = rebase --autosquash -i
   rba = rebase --abort
-  cpa = cherry-pick --abort
-  mergea = merge --abort
+  rbc = rebase --continue
+  mga = merge --abort
+  mgc = merge --continue
 [core]
 	editor = nvim
 [pull]
