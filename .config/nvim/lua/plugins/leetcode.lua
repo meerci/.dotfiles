@@ -7,12 +7,12 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
-    lang = "cpp",
+    lang = "c++",
 
     cn = {
       enabled = true,
-      translator = true,
-      translate_problems = true,
+      translator = false,
+      translate_problems = false,
     },
   },
 }
