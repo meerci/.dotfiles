@@ -10,8 +10,10 @@ return {
       end
 
       -- stylua: ignore start
-      map("n", "]h", gs.next_hunk, "Next Hunk")
-      map("n", "[h", gs.prev_hunk, "Prev Hunk")
+      map("n", "]]", function() gs.nav_hunk("next") end, "Next Change")
+      map("n", "[[", function() gs.nav_hunk("prev") end, "Prev Change")
+      map("n", "]h", function() gs.nav_hunk("next", { target = "all" }) end, "Next Hunk")
+      map("n", "[h", function() gs.nav_hunk("prev", { target = "all" }) end, "Prev Hunk")
       map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
       map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
       map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
