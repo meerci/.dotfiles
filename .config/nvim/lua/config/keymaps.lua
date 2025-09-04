@@ -15,7 +15,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "vv", "<c-v>", { desc = "visiual block" })
-map("n", "<s-q>", "<cmd>w<cr>", { desc = "Save file" })
 
 map({ "n", "v" }, "<s-h>", "^", { desc = "Soft line front" })
 map({ "n", "v" }, "<s-l>", "g_", { desc = "Soft line end" })

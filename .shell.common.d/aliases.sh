@@ -25,3 +25,6 @@ alias pxinstall='pip install --break-system-packages'
 
 alias v="nvim"
 alias g="git"
+alias ga="git add ."
+
+alias docker="podman"

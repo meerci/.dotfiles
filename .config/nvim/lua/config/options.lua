@@ -14,3 +14,5 @@ vim.g.root_spec = { { ".git", "lua","src"}, "cwd" }
 -- open use neovim in nested shell
 -- install neovim-remote first
 vim.env.GIT_EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
+
+vim.o.expandtab = true

@@ -1,5 +1,5 @@
 [user]
-	email = email = chenbao.cs@qq.com
+	email = chenbao.cs@qq.com
 	name = chenbao
 [alias]
 	a = add
@@ -44,3 +44,8 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

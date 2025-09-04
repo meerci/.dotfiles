@@ -55,18 +55,19 @@ flow-base() {
 
 # create and checkout to a new feature branch
 flow-new-branch() {
-  local new_branch=$1
+  local new_branch="$1"
   if [ -z "${new_branch}" ]; then echo "please specify the name" && return 1; fi
 
   local remote=$(git config --get branch.$(git branch --show-current).remote)
   local branch_path=$(git config --get branch.$(git branch --show-current).merge)
   local remote_branch_name=${branch_path##*/}
 
-  if [ -z "${remote}" ]; then echo "empty remote" && return 1; fi
-  if [ -z "${remote_branch_name}" ]; then echo "empty branch name" && return 1; fi
-
-  trace_exec git checkout -b $new_branch ${remote}/$remote_branch_name
-  trace_exec git config --local branch.${new_branch}.remote $remote
+  if [ ! -z "${remote}" ] && [ ! -z "${remote_branch_name}" ]; then
+    trace_exec git checkout -b $new_branch ${remote}/$remote_branch_name
+    trace_exec git config --local branch.${new_branch}.remote $remote
+  else
+    trace_exec git checkout -b $new_branch
+  fi
   trace_exec git config --local branch.${new_branch}.merge $branch_path
 }
 
