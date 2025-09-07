@@ -57,5 +57,27 @@ function recv_file() {
   return $?
 }
 
-alias rf=recv_file
-alias sf=send_file
+send_file_diff() {
+  local -a newer_ref files
+  mkdir -p .cache
+  touch .cache/.last_upload_time.1
+
+  if [[ -e .cache/.last_upload_time ]]; then
+    newer_ref=(-newer .cache/.last_upload_time)
+  else
+    newer_ref=()
+  fi
+
+  while IFS= read -r -d '' file; do
+    files+=("$file")
+    echo uploading "$file"
+  done < <(
+    find . -name '.*' ! -name '.' -prune -o -type f "${newer_ref[@]}" -print0
+  )
+
+  ((${#files[@]} == 0)) && return 0
+
+  send_file "$@" "${files[@]}" || return $?
+
+  mv .cache/.last_upload_time.1 .cache/.last_upload_time
+}

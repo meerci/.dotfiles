@@ -28,3 +28,7 @@ alias g="git"
 alias ga="git add ."
 
 alias docker="podman"
+
+alias rf='recv_file'
+alias sf='send_file'
+alias sfd='send_file_diff'

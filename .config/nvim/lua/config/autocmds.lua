@@ -31,6 +31,15 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = "*.xpu",
+  callback = function(args)
+    vim.cmd("set ft=cuda")
+    local clients = vim.lsp.get_clients({ bufnr = args.buf })
+    vim.lsp.stop_client(clients, false)
+  end,
+})
+
 -- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
 --   pattern = "*",
 --   callback = function(args)
