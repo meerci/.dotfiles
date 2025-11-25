@@ -19,5 +19,24 @@ return {
 
       vim.keymap.set("n", "<leader>dr", "<cmd>DiffviewRefresh<cr>", { desc = "diffview refresh" })
     end,
+    config = function()
+      local actions = require("diffview.actions")
+      require("diffview").setup({
+        enhanced_diff_hl = true,
+        view = {
+          default = { layout = "diff2_vertical" },
+          file_history = { layout = "diff2_vertical" },
+          merge_tool = { layout = "diff3_mixed", disable_diagnostics = true },
+        },
+        keymaps = {
+          view = {
+            { "n", "]]", "<cmd>norm! ]c<cr>", { desc = "Next Hunk" } },
+            { "n", "[[", "<cmd>norm! [c<cr>", { desc = "Prev Hunk" } },
+            { "n", "]c", "<cmd>norm! ]c<cr>", { desc = "Next Hunk" } },
+            { "n", "[c", "<cmd>norm! [c<cr>", { desc = "Prev Hunk" } },
+          },
+        },
+      })
+    end,
   },
 }

@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "*.p4", "*.npl" },
   callback = function(_)
-    vim.cmd("set ft=c")
+    vim.cmd("set ft=go")
   end,
 })
 
@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
   callback = function(args)
     local clients = vim.lsp.get_clients({ bufnr = args.buf })
     vim.lsp.stop_client(clients, false)
+    vim.cmd("set expandtab")
   end,
 })
 

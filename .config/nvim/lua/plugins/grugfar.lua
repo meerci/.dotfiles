@@ -7,14 +7,12 @@ return {
       {
         "<leader>sr",
         function()
-          local grug = require("grug-far")
-          grug.grug_far({
+          require("grug-far").open({
             transient = true,
             prefills = {
               search = vim.fn.expand("<cword>"),
             },
           })
-          vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "wrap", false)
         end,
         mode = { "n", "v" },
         desc = "Search and Replace",
