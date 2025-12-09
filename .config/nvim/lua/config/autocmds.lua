@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "*.p4", "*.npl" },
   callback = function(_)
-    vim.cmd("set ft=go")
+    vim.cmd("set ft=cpp")
   end,
 })
 

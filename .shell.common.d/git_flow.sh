@@ -84,7 +84,7 @@ flow-cr() {
 }
 
 flow-list() {
-  trace_exec git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:short) | %(align:40,left)%(refname:short)%(end) | %(subject)" | nl
+  trace_exec git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:short) | %(align:40,left)%(refname:short)%(end) | %(subject)" | nl | tail -r
 }
 
 flow-select() {
