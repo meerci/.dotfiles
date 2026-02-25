@@ -41,18 +41,23 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
--- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
---   pattern = "*",
---   callback = function(args)
---     local buf = args.buf
---     local cur_buf = vim.api.nvim_get_current_buf()
---     if cur_buf ~= buf then
---       return
---     end
---     if vim.bo.modifiable and vim.bo.buflisted then
---       vim.api.nvim_buf_call(buf, function()
---         vim.cmd("silent! write")
---       end)
---     end
---   end,
--- })
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+  pattern = "*",
+  callback = function(args)
+    local buf = args.buf
+    if vim.bo[buf].buftype ~= "" or not vim.bo[buf].buflisted then
+      return
+    end
+    if not vim.api.nvim_buf_get_option(buf, "modifiable") then
+      return
+    end
+    if not vim.bo[buf].modified then
+      return
+    end
+    vim.schedule(function()
+      pcall(vim.api.nvim_buf_call, buf, function()
+        vim.cmd("silent! write")
+      end)
+    end)
+  end,
+})
