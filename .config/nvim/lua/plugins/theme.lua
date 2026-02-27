@@ -5,11 +5,12 @@ return {
   { "sainnhe/everforest" },
   { "olimorris/onedarkpro.nvim" },
   { "ghifarit53/tokyonight-vim" },
+  { "morhetz/gruvbox" },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "sonokai",
+      colorscheme = "everforest",
     },
   },
 }
