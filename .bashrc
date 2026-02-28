@@ -112,3 +112,4 @@ for script in ~/.shell.local.d/*.sh; do source "${script}"; done
 
 #======Configuration End=========
 
+. "$HOME/.cargo/env"

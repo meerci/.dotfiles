@@ -43,5 +43,8 @@ zinit light joshskidmore/zsh-fzf-history-search
 for script in ~/.shell.common.d/*.sh; do source "${script}"; done
 for script in ~/.shell.local.d/*.sh; do source "${script}"; done
 
+alias python=python3
+alias py=python3
+
 #======Configuration End=========
 
