@@ -77,3 +77,9 @@ map("n", "do", "<cmd>diffget<cr>", { desc = "diffget", remap = false })
 map("n", "dp", "<cmd>diffput<cr>", { desc = "diffput", remap = false })
 map("n", "gs", "<leader>sw", { desc = "search cursor word", remap = true, silent = true })
 map("v", "gs", "<leader>sw", { desc = "search cursor word", remap = true, silent = true })
+
+map("n", "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
+map("n", "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "Terminal (Root Dir)" })
+map({"n","t"}, "<c-/>",function() Snacks.terminal() end, { desc = "Terminal (Root Dir)" })
+map({"n","t"}, "<c-_>",function() Snacks.terminal() end, { desc = "which_key_ignore" })
+
