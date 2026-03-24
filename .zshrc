@@ -1,5 +1,5 @@
 export PS1='%n %~ %# '
-export PATH=/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 fpath=(~/.zsh $fpath)
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
